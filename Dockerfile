@@ -17,6 +17,7 @@ RUN apt-get update -qq && \
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 RUN echo "deb https://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list.d/cran-rstudio.list
 
+RUN apt-get install -y apt-transport-https
 
 RUN apt-get update && \
     apt-get install -y  r-base
