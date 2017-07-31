@@ -4,7 +4,7 @@
 SenderEmail = rsconnect@rstudio.com
 EmailProvider = print
 Address = http://localhost:3939/
-DataDir = data
+DataDir = /connect/data
 
 [Client]
 ReconnectTimeout = 15s

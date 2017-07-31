@@ -7,7 +7,7 @@ fi
 
 activate() {
     echo "Activating license ..."
-    sudo opt/rstudio-connect/bin/license-manager activate $CONNECT_LICENSE # output is informative.
+    sudo /opt/rstudio-connect/bin/license-manager activate $CONNECT_LICENSE # output is informative.
     if [ $? -ne 0 ]
     then
         echo >&2 'error: CONNECT_LICENSE could not be activated.'
