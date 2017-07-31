@@ -18,7 +18,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 RUN echo "deb https://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/sources.list.d/cran-rstudio.list
 
 
-RUN apt-get install -y  r-base
+RUN apt-get update && \
+    apt-get install -y  r-base
 
 # Install Connect
 ARG CONNECT_BINARY_URL
