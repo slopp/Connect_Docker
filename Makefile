@@ -15,4 +15,4 @@ start:
 		-p :3939:3939 \
 		-e CONNECT_LICENSE=$(CONNECT_LICENSE) \
 		--name connect \
-		$(CONNECT_IMAGE) dumb-init ./scripts/start-licensed.sh /opt/rstudio-connect/bin/connect --config ./config/development.gcfg
+		connect-demo dumb-init ./scripts/start-licensed.sh /opt/rstudio-connect/bin/connect --config ./config/development.gcfg
