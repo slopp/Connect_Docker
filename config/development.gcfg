@@ -1,0 +1,22 @@
+; RStudio Connect Docker Environment
+
+[Server]
+SenderEmail = rsconnect@rstudio.com
+EmailProvider = print
+Address = http://localhost:3939/
+DataDir = data
+
+[Client]
+ReconnectTimeout = 15s
+
+[Http]
+Listen = :3939
+NoWarning = true
+
+[Authentication]
+Provider = password
+BasicAuth = true
+
+[Metrics]
+Enabled=true
+
