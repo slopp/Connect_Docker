@@ -6,7 +6,7 @@ clean:
 # Build the Docker Image using binary specified as arg
 build:
 	docker build -t connect-demo \
-	   --build-arg CONNECT_BINARY_URL=$CONNECT_BINARY_URL . 
+	   --build-arg CONNECT_BINARY_URL=$(CONNECT_BINARY_URL) . 
 
 # Starts connect in a container named "connect".
 start:
