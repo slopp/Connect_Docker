@@ -1,23 +1,14 @@
 FROM ubuntu:precise
 MAINTAINER  Sean Lopp <sean@rstudio.com>
 
-ARG CONNECT_BINARY_URL
 
 RUN apt-get update -qq && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    apt-transport-https \
     build-essential \
-    curl \
-    dnsutils \
-    git \
-    libcurl4-openssl-dev \
-    libsqlite3-dev \
-    python-software-properties \
-    python-unittest2 \
+    libcurl4-gnutls-dev \
     libxml2-dev \
-    rrdtool \
-    sqlite3 \
-    sudo \
+    libssl-dev \
+    gdebi-core \
     vim \
     wget
 
@@ -28,14 +19,12 @@ RUN echo "deb https://cran.rstudio.com/bin/linux/ubuntu precise/" >> /etc/apt/so
 
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 
-RUN apt-get update -qq && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    r-base-core \
-    r-base-dev
+RUN apt-get install r-base
 
 # Install Connect
+ARG CONNECT_BINARY_URL
 RUN wget -O /rstudio-connect.deb $CONNECT_BINARY_URL  && \
-    apt-get install -y rstudio-connect && \
+    gdebi rstudio-connect.deb && \
     rm /rstudio-connect
 
 RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.1.3/dumb-init_1.1.3_amd64 && chmod +x /usr/local/bin/dumb-init
